@@ -1,29 +1,9 @@
-Describe 'Testing against PSSA rules' {
+function Get-CustomErrorMessage($ErrorMessage){ $Error = "Error occurred: $ErrorMessage" }
 
-    Context 'PSSA Standard Rules' {
-
-        $analysis = Invoke - ScriptAnalyzer - Path '.\t.ps1'
-        $scriptAnalyzerRules = Get - ScriptAnalyzerRule
-
-        forEach($rule in $scriptAnalyzerRules) {
-
-            It "Should pass $rule" {
-
-                If($analysis.RuleName - contains $rule) {
-
-                    $analysis |
-
-                        Where RuleName - EQ $rule - outvariable failures |
-                        Out - Default
-
-                    $failures.Count | Should Be 0
-
-                }
-
-            }
-
-        }
-
-    }
-
+function Get-MeaningOfLife
+{
+	...
+	Write-Host "Computing the answer to the ultimate question of life, the universe and everything"
+	...
+	Write-Host 42
 }
